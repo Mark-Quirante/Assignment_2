@@ -69,7 +69,7 @@ async function displaySearch(event) {
 			listItem.textContent = userSearch[i].strMeal;
 			listImage.src = userSearch[i].strMealThumb;
 			display.appendChild(listItem);
-			display.appendChild(listImage);
+			listItem.appendChild(listImage);
 		}
 	}
 }
