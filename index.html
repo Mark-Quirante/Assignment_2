@@ -10,16 +10,24 @@
 		<title>Assignment 2</title>
 	</head>
 	<body>
-		<form id="searchForm">
-			<label for="searchInput">Search Breed:</label>
-			<input type="text" id="searchInput" name="searchInput" />
-			<button type="submit">Search</button>
-		</form>
-
-		<div id="dog-image-container">
-			<img id="dog-image" src="" alt="Picture of Dog" />
+		<div id="food-categories-container">
+			<div id="food-categories-list-container">
+				<p>Food Categories!</p>
+				<ul class="white-box" id="food-categories-list"></ul>
+			</div>
 		</div>
 
-		<script src="script.js"></script>
+		<div id="search-bar">
+			<form id="category-search-from">
+				<label for="category-search"></label>
+				<input type="text" id="category-search" name="category-search" />
+				<button type="submit">Search!</button>
+			</form>
+		</div>
+
+		<div>
+			<ul id="display-search"></ul>
+		</div>
+		<script src="./script.js"></script>
 	</body>
 </html>
