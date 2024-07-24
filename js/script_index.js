@@ -59,7 +59,7 @@ async function displaySearch(event) {
 	const display = document.getElementById("display-search");
 
 	display.innerHTML = "";
-	for (let i = 0; i < ; i++) {
+	for (let i = 0; i < userSearch.length; i++) {
 		if (userSearch[i]) {
 			const listItem = document.createElement("li");
 			const listImage = document.createElement("img");
