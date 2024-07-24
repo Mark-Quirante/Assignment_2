@@ -10,7 +10,7 @@ p {
 	padding: 0;
 }
 #food-categories-list li {
-	padding: 0.45rem;
+	padding: 0.5rem;
 }
 
 #food-categories-list li:last-child {
@@ -45,6 +45,21 @@ p {
 	display: flex;
 	flex-direction: column;
 	width: 15rem;
+	margin-top: 2rem;
+}
+
+form {
+	margin-bottom: 1rem;
+}
+
+body {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#content-area {
+	margin-top: 2rem;
 }
 
 /**************************
@@ -54,4 +69,5 @@ p {
 	background-color: blanchedalmond;
 	border: 2px solid black;
 	border-radius: 1rem;
+	max-width: fit-content;
 }
