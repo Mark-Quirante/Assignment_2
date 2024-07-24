@@ -10,22 +10,22 @@
 		<title>Assignment 2</title>
 	</head>
 	<body>
-		<div id="food-categories-container">
+		<div class="white-box" id="food-categories-container">
 			<div id="food-categories-list-container">
-				<p>Food Categories!</p>
-				<ul class="white-box" id="food-categories-list"></ul>
+				<h1>Food Categories!</h1>
+				<ul id="food-categories-list"></ul>
+			</div>
+
+			<div id="search-bar">
+				<form id="category-search-from">
+					<label for="category-search"></label>
+					<input type="text" id="category-search" name="category-search" />
+					<button type="submit">Search!</button>
+				</form>
 			</div>
 		</div>
 
-		<div id="search-bar">
-			<form id="category-search-from">
-				<label for="category-search"></label>
-				<input type="text" id="category-search" name="category-search" />
-				<button type="submit">Search!</button>
-			</form>
-		</div>
-
-		<div>
+		<div class="white-box" id="content-area">
 			<ul id="display-search"></ul>
 		</div>
 		<script src="./script.js"></script>

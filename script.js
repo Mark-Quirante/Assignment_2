@@ -50,26 +50,29 @@ async function getSearch(category) {
 	}
 }
 
-const searchForm = document.getElementById("category-search-from");
-searchForm.addEventListener("submit", displaySearch);
-
 async function displaySearch(event) {
 	event.preventDefault();
 
 	const userInput = document.getElementById("category-search").value;
 	const userSearch = await getSearch(userInput);
-
 	const display = document.getElementById("display-search");
 
 	display.innerHTML = "";
-	for (let i = 0; i < 5; i++) {
+	for (let i = 0; i < 12; i++) {
 		if (userSearch[i]) {
 			const listItem = document.createElement("li");
 			const listImage = document.createElement("img");
 			listItem.textContent = userSearch[i].strMeal;
 			listImage.src = userSearch[i].strMealThumb;
 			display.appendChild(listItem);
-			display.appendChild(listImage);
+			listItem.appendChild(listImage);
 		}
 	}
+	contentArea.style.display = "flex";
 }
+
+const contentArea = document.getElementById("content-area");
+contentArea.style.display = "none";
+
+const searchForm = document.getElementById("category-search-from");
+searchForm.addEventListener("submit", displaySearch);
