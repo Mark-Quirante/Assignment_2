@@ -17,7 +17,7 @@ async function getFoodCategories() {
 }
 
 async function displayFoodCategoryName() {
-	const foodCategoriesList = document.getElementById("food-categories-list");
+	const foodCategoriesList = document.getElementById("food-categories-ul");
 	foodCategoriesList.innerHTML = ""; // Clear the list first
 	const categories = await getFoodCategories();
 	for (let i = 0; i < categories.length; i++) {
@@ -59,7 +59,7 @@ async function displaySearch(event) {
 	const display = document.getElementById("display-search");
 
 	display.innerHTML = "";
-	for (let i = 0; i < 6; i++) {
+	for (let i = 0; i < ; i++) {
 		if (userSearch[i]) {
 			const listItem = document.createElement("li");
 			const listImage = document.createElement("img");
