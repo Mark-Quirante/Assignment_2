@@ -4,18 +4,18 @@ File Name: signupScript.js
 Date: July 21, 2024  
 */
 
-// Hàm để kiểm tra tính hợp lệ của trường đầu vào
+// Function to validate a single field
 function validateField(field, pattern, errorMessage) {
     const value = field.value.trim();
     if (!pattern.test(value)) {
-        displayError(field.id, errorMessage); // Hiển thị lỗi nếu giá trị không khớp với mẫu
+        displayError(field.id, errorMessage); // Show error if the value does not match the pattern
         return false;
     }
-    clearError(field.id); // Xóa lỗi nếu giá trị hợp lệ
+    clearError(field.id); // Clear error if the value is valid
     return true;
 }
 
-// Hàm kiểm tra tính hợp lệ của toàn bộ biểu mẫu
+// Function to validate the entire form
 function validateForm() {
     let isValid = true;
 
@@ -25,19 +25,20 @@ function validateForm() {
     const confirmPasswordField = document.getElementById('pass2');
     const termsField = document.getElementById('terms');
 
-    // Kiểm tra tính hợp lệ của từng trường
-    isValid &= validateField(emailField, /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'X Email address should be non-empty and in the format: xyz@xyz.xyz');
+    // Validate each field
+    isValid &= validateField(emailField, /^[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]{3,}\.[a-zA-Z]{3,5}$/, 'X Email address should be non-empty and in the format: xyz@xyz.xyz');
     isValid &= validateField(loginField, /^.{1,29}$/, 'X User name must be non-empty and less than 30 characters');
     isValid &= validateField(passwordField, /^.{8,}$/, 'X Password must be at least 8 characters long');
-
-    // Kiểm tra xác nhận mật khẩu
+    
+    // Validate confirm password
     if (confirmPasswordField.value.trim() === "" || passwordField.value.trim() !== confirmPasswordField.value.trim()) {
         displayError('pass2', 'X Passwords do not match or are blank');
         isValid = false;
     } else {
         clearError('pass2');
     }
-    
+
+    // Validate terms and conditions
     if (!termsField.checked) {
         displayError('terms', 'X Please accept the terms and conditions');
         isValid = false;
@@ -45,10 +46,10 @@ function validateForm() {
         clearError('terms');
     }
 
-    return !!isValid;
+    return isValid;
 }
 
-// Hàm hiển thị lỗi
+// Function to display error messages
 function displayError(fieldId, message) {
     const field = document.getElementById(fieldId);
     field.style.borderColor = 'red';
@@ -64,7 +65,7 @@ function displayError(fieldId, message) {
     errorElement.textContent = message;
 }
 
-// Hàm xóa lỗi
+// Function to clear error messages
 function clearError(fieldId) {
     const field = document.getElementById(fieldId);
     field.style.borderColor = '';
@@ -75,18 +76,18 @@ function clearError(fieldId) {
     }
 }
 
-// Hàm cài đặt kiểm tra lỗi khi rời khỏi trường
+// Function to set up validation on blur for fields
 function setupBlurValidation(field, pattern, errorMessage) {
     field.addEventListener('blur', () => validateField(field, pattern, errorMessage));
 }
 
-// Hàm đặt lại biểu mẫu và xóa lỗi
+// Function to reset the form and clear errors
 function resetForm() {
     const fields = document.querySelectorAll('.textfield input, .checkbox input');
     fields.forEach(field => clearError(field.id));
 }
 
-// Sự kiện được kích hoạt khi tài liệu đã tải xong
+// Event listener for when the document is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     const emailField = document.getElementById('email');
     const loginField = document.getElementById('login');
@@ -95,30 +96,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const termsField = document.getElementById('terms');
     const newsletterField = document.getElementById('newsletter');
 
-    // Cài đặt kiểm tra lỗi cho từng trường
-    setupBlurValidation(emailField, /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'X Email address should be non-empty and in the format: xyz@xyz.xyz');
+    // Set up validation for each field
+    setupBlurValidation(emailField, /^[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]{3,}\.[a-zA-Z]{3,5}$/, 'X Email address should be non-empty and in the format: xyz@xyz.xyz');
     setupBlurValidation(loginField, /^.{1,29}$/, 'X User name must be non-empty and less than 30 characters');
     setupBlurValidation(passwordField, /^.{8,}$/, 'X Password must be at least 8 characters long');
     setupBlurValidation(confirmPasswordField, new RegExp(`^${passwordField.value}$`), 'X Passwords do not match or are blank');
     termsField.addEventListener('change', () => validateField(termsField, /.+/, 'X Please accept the terms and conditions'));
     
-    // Hiển thị cảnh báo khi chọn nhận newsletter
+    // Show alert if newsletter checkbox is selected
     newsletterField.addEventListener('click', function() {
         if (newsletterField.checked) {
             alert('You may receive spam emails.');
         }
     });
     
-    // Kiểm tra tính hợp lệ khi gửi biểu mẫu
+    // Validate the form on submit
     document.querySelector('form').addEventListener('submit', (event) => {
         if (!validateForm()) {
-            event.preventDefault(); // Ngăn chặn gửi biểu mẫu nếu không hợp lệ
+            event.preventDefault(); // Prevent form submission if invalid
         } else {
-            loginField.value = loginField.value.toLowerCase(); // Chuyển tên đăng nhập thành chữ thường
+            loginField.value = loginField.value.toLowerCase(); // Convert login name to lowercase
         }
     });
 
-    // Đặt lại biểu mẫu và xóa lỗi khi nhấn nút reset
+    // Reset form and clear errors when reset button is clicked
     document.querySelector('form').addEventListener('reset', () => {
         resetForm();
     });
