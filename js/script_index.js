@@ -1,6 +1,7 @@
 /** Food Categories Functionality */
 
 const APICategories = "https://www.themealdb.com/api/json/v1/1/categories.php";
+
 async function getFoodCategories() {
 	try {
 		const response = await fetch(APICategories);
@@ -16,7 +17,7 @@ async function getFoodCategories() {
 }
 
 async function displayFoodCategoryName() {
-	const foodCategoriesList = document.getElementById("food-categories-list");
+	const foodCategoriesList = document.getElementById("food-categories-ul");
 	foodCategoriesList.innerHTML = ""; // Clear the list first
 	const categories = await getFoodCategories();
 	for (let i = 0; i < categories.length; i++) {
@@ -58,7 +59,7 @@ async function displaySearch(event) {
 	const display = document.getElementById("display-search");
 
 	display.innerHTML = "";
-	for (let i = 0; i < 12; i++) {
+	for (let i = 0; i < userSearch.length; i++) {
 		if (userSearch[i]) {
 			const listItem = document.createElement("li");
 			const listImage = document.createElement("img");
@@ -74,5 +75,5 @@ async function displaySearch(event) {
 const contentArea = document.getElementById("content-area");
 contentArea.style.display = "none";
 
-const searchForm = document.getElementById("category-search-from");
+const searchForm = document.getElementById("search-form");
 searchForm.addEventListener("submit", displaySearch);

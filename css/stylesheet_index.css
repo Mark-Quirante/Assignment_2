@@ -1,0 +1,53 @@
+body {
+	font-family: "Courier New", Courier, monospace;
+}
+
+h1 {
+	text-align: center;
+}
+
+img {
+	height: 100px;
+	width: 100px;
+}
+
+/**********************************
+		Styles for index.html
+***********************************/
+/*Displaying the list of categories as a row*/
+#food-categories-ul {
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+	justify-content: center;
+}
+
+/*Putting a space between each category*/
+#food-categories-ul li {
+	margin-right: 1rem;
+}
+
+#search-bar-container {
+	display: flex;
+	justify-content: center;
+}
+
+#display-search {
+	list-style-type: none;
+}
+
+#display-search li {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/**********************************
+		Button Styles
+***********************************/
+.button-style {
+	background-color: #12c9ff;
+	padding: 5px;
+	border-radius: 1rem;
+}
