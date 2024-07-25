@@ -34,13 +34,50 @@ img {
 
 #display-search {
 	list-style-type: none;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	max-width: 75rem;
+	margin: 0px auto;
 }
 
 #display-search li {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	text-align: center;
+}
+
+#ingredient-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: none;
+}
+
+#recipe-list {
+	position: relative;
+	background-color: burlywood;
+	width: 50vw;
+	height: 70vh;
+	border-radius: 30px;
+}
+
+#exit-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#content-area {
+	margin-top: 5rem;
+	padding: 2rem;
+	display: none;
 }
 
 /**********************************
