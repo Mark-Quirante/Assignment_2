@@ -60,18 +60,35 @@ img {
 	display: none;
 }
 
-#recipe-list {
+#recipe-list-container {
 	position: relative;
-	background-color: burlywood;
-	width: 50vw;
+	background-color: #f2f2f2;
+	width: 70vw;
 	height: 70vh;
 	border-radius: 30px;
+	overflow-y: scroll;
 }
 
-#exit-overlay {
+#recipe-list-ingredient {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	list-style: none;
+}
+
+#recipe-list-ingredient li {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 90%;
+}
+
+#exit-overlay-button {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 15px;
+	right: 20px;
+	background-color: lightgoldenrodyellow;
 }
 
 #content-area {
@@ -85,6 +102,6 @@ img {
 ***********************************/
 .button-style {
 	background-color: #12c9ff;
-	padding: 5px;
+	padding: 0.5rem;
 	border-radius: 1rem;
 }

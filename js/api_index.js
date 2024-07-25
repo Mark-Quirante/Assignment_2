@@ -27,7 +27,6 @@ async function getSearch(category) {
 			throw new Error(`HTTP error! Status: ${response.status}`);
 		}
 		const data = await response.json();
-		console.log(data);
 		return data.meals;
 	} catch (error) {
 		console.error("Error fetching data:", error); // Handle errors

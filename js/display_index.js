@@ -3,7 +3,10 @@ const CONTENT_AREA = document.getElementById("content-area");
 const DISPLAY = document.getElementById("display-search");
 const SEARCH_FORM = document.getElementById("search-form");
 const OVERLAY_WINDOW = document.getElementById("ingredient-overlay");
-const CLOSE_OVERLAY_BUTTON = document.getElementById("exit-overlay");
+const CLOSE_OVERLAY_BUTTON = document.getElementById("exit-overlay-button");
+const RECIPE_OVERLAY_LIST_ING = document.getElementById(
+	"recipe-list-ingredient"
+);
 
 /** Food Categories Functionality */
 
@@ -29,7 +32,7 @@ async function displaySearch(event) {
 	const userInput = document.getElementById("category-search").value;
 	const userSearch = await getSearch(userInput);
 
-	DISPLAY.innerHTML = "";
+	DISPLAY.innerHTML = ""; //Clear the text first
 	for (let i = 0; i < userSearch.length; i++) {
 		if (userSearch[i]) {
 			const listItem = document.createElement("li");
@@ -49,11 +52,30 @@ async function displaySearch(event) {
 
 async function onClickMealList(event) {
 	const mealId = event.target.dataset.mealId;
-
+	RECIPE_OVERLAY_LIST_ING.innerHTML = ""; // Clear list of Ingredients first
 	if (mealId) {
 		const ingredients = await getMealIngredients(mealId);
-		console.log("YOH", ingredients);
+		const nameMeal = ingredients.strMeal;
+		const nameElement = document.createElement("h2");
+		nameElement.innerHTML = nameMeal;
+		RECIPE_OVERLAY_LIST_ING.appendChild(nameElement);
+		displayIngredientsAndMeasurments(ingredients);
 		OVERLAY_WINDOW.style.display = "flex";
+	}
+}
+
+async function displayIngredientsAndMeasurments(ingredients) {
+	for (let i = 1; i <= 20; i++) {
+		const ingredient = ingredients["strIngredient" + i];
+		const measurement = ingredients["strMeasure" + i];
+		const listElement = document.createElement("li");
+		const ingredientElement = document.createElement("p");
+		const measureElement = document.createElement("p");
+		ingredientElement.innerHTML = ingredient;
+		measureElement.innerHTML = measurement;
+		listElement.appendChild(ingredientElement);
+		listElement.appendChild(measureElement);
+		RECIPE_OVERLAY_LIST_ING.appendChild(listElement);
 	}
 }
 
