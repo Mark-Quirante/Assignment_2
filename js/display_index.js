@@ -4,16 +4,15 @@ const DISPLAY = document.getElementById("display-search");
 const SEARCH_FORM = document.getElementById("search-form");
 const OVERLAY_WINDOW = document.getElementById("ingredient-overlay");
 const CLOSE_OVERLAY_BUTTON = document.getElementById("exit-overlay-button");
-const RECIPE_OVERLAY_LIST_ING = document.getElementById(
-	"recipe-list-ingredient"
-);
+const RECIPE_OVERLAY = document.getElementById("recipe-list-ingredient");
 
+let categories;
 /** Food Categories Functionality */
 
 async function displayFoodCategoryName() {
 	const foodCategoriesList = document.getElementById("food-categories-ul");
 	foodCategoriesList.innerHTML = ""; // Clear the list first
-	const categories = await getFoodCategories();
+	categories = await getFoodCategories();
 	for (let i = 0; i < categories.length; i++) {
 		if (categories[i]) {
 			const listItem = document.createElement("li");
@@ -21,6 +20,7 @@ async function displayFoodCategoryName() {
 			foodCategoriesList.appendChild(listItem);
 		}
 	}
+	return listItem;
 }
 
 /** Search Bar Functionality */
@@ -30,9 +30,26 @@ async function displaySearch(event) {
 	event.preventDefault();
 
 	const userInput = document.getElementById("category-search").value;
+
+	console.log(categories);
+
+	//validates user search
+	if (
+		!categories.find(function (categoryObject) {
+			return (
+				categoryObject.strCategory.toLowerCase() === userInput.toLowerCase()
+			);
+		})
+	) {
+		alert("Search must include categories listed and non-empty.");
+		CONTENT_AREA.style.display = "none";
+		return;
+	}
+
 	const userSearch = await getSearch(userInput);
 
 	DISPLAY.innerHTML = ""; //Clear the text first
+
 	for (let i = 0; i < userSearch.length; i++) {
 		if (userSearch[i]) {
 			const listItem = document.createElement("li");
@@ -52,13 +69,13 @@ async function displaySearch(event) {
 
 async function onClickMealList(event) {
 	const mealId = event.target.dataset.mealId;
-	RECIPE_OVERLAY_LIST_ING.innerHTML = ""; // Clear list of Ingredients first
+	RECIPE_OVERLAY.innerHTML = ""; // Clear list of Ingredients first
 	if (mealId) {
 		const ingredients = await getMealIngredients(mealId);
 		const nameMeal = ingredients.strMeal;
 		const nameElement = document.createElement("h2");
 		nameElement.innerHTML = nameMeal;
-		RECIPE_OVERLAY_LIST_ING.appendChild(nameElement);
+		RECIPE_OVERLAY.appendChild(nameElement);
 		displayIngredientsAndMeasurments(ingredients);
 		OVERLAY_WINDOW.style.display = "flex";
 	}
@@ -75,7 +92,7 @@ async function displayIngredientsAndMeasurments(ingredients) {
 		measureElement.innerHTML = measurement;
 		listElement.appendChild(ingredientElement);
 		listElement.appendChild(measureElement);
-		RECIPE_OVERLAY_LIST_ING.appendChild(listElement);
+		RECIPE_OVERLAY.appendChild(listElement);
 	}
 }
 
