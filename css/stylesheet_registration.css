@@ -1,0 +1,82 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+#container {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	padding: 2em;
+	border: 2px solid #333;
+	border-radius: 10px;
+	width: 100%;
+	max-width: 600px;
+	background-color: #fff;
+	text-align: center;
+}
+
+h1 {
+	color: #333;
+}
+
+h2 {
+	color: #333;
+	font-size: 1em;
+}
+
+input[type="text"],
+input[type="password"] {
+	width: 100%;
+	padding: 0.5em;
+	margin: 0.5em 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+.terms-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 1em 0;
+	font-size: 0.9em;
+	text-align: left;
+}
+
+.terms-container input[type="checkbox"] {
+	margin-right: 0.5em;
+}
+
+.terms-container label {
+	margin: 0;
+}
+
+.terms-container a {
+	color: #007bff;
+	text-decoration: none;
+}
+
+.terms-container a:hover {
+	text-decoration: underline;
+}
+
+button {
+	padding: 0.75em;
+	margin-top: 1em;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1em;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
