@@ -35,13 +35,13 @@ async function displaySearch(event) {
 
 	//validates user search
 	if (
-		!categories.find(function (categoryObject) {
+		!categories.find((categoryObject) => {
 			return (
 				categoryObject.strCategory.toLowerCase() === userInput.toLowerCase()
 			);
 		})
 	) {
-		alert("Search must include categories listed and non-empty.");
+		alert("Search must include categories listed.");
 		CONTENT_AREA.style.display = "none";
 		return;
 	}
@@ -54,14 +54,19 @@ async function displaySearch(event) {
 		if (userSearch[i]) {
 			const listItem = document.createElement("li");
 			const listImage = document.createElement("img");
+			const saveButton = document.createElement("button");
 			listItem.textContent = userSearch[i].strMeal;
 			listImage.src = userSearch[i].strMealThumb;
+			saveButton.textContent = "+";
+			saveButton.classList.add("save-button");
 			DISPLAY.appendChild(listItem);
 			listItem.appendChild(listImage);
+			listItem.appendChild(saveButton);
 
 			//Adding data attributes to elements to access Meal ID
 			listItem.dataset.mealId = userSearch[i].idMeal;
 			listImage.dataset.mealId = userSearch[i].idMeal;
+			saveButton.dataset.mealId = userSearch[i].idMeal;
 		}
 	}
 	CONTENT_AREA.style.display = "grid";
@@ -74,8 +79,12 @@ async function onClickMealList(event) {
 		const ingredients = await getMealIngredients(mealId);
 		const nameMeal = ingredients.strMeal;
 		const nameElement = document.createElement("h2");
+		let areaMeal = ingredients.strArea;
+		let areaElement = document.createElement("h3");
 		nameElement.innerHTML = nameMeal;
+		areaElement.innerHTML = areaMeal;
 		RECIPE_OVERLAY.appendChild(nameElement);
+		RECIPE_OVERLAY.appendChild(areaElement);
 		displayIngredientsAndMeasurments(ingredients);
 		OVERLAY_WINDOW.style.display = "flex";
 	}
