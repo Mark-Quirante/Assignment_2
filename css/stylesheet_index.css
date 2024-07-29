@@ -7,8 +7,8 @@ h1 {
 }
 
 img {
-	height: 100px;
-	width: 100px;
+	height: 70%;
+	width: 70%;
 }
 
 /**********************************
@@ -34,20 +34,81 @@ img {
 
 #display-search {
 	list-style-type: none;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	max-width: 75rem;
+	margin: 0px auto;
 }
 
 #display-search li {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	text-align: center;
+	margin-bottom: 25%;
+}
+
+#ingredient-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: none;
+}
+
+#recipe-list-container {
+	position: relative;
+	background-color: #f2f2f2;
+	width: 70vw;
+	height: 70vh;
+	border: 2px solid black;
+	overflow-y: scroll;
+}
+
+#recipe-list-ingredient {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#recipe-list-ingredient li {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 60%;
+}
+
+#exit-overlay-button {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	background-color: lightgoldenrodyellow;
+}
+
+#content-area {
+	background-color: #b7f8ff;
+	border: 2px solid black;
+	border-radius: 20px;
+	margin-top: 5rem;
+	padding: 2rem;
+	display: none;
 }
 
 /**********************************
 		Button Styles
 ***********************************/
 .button-style {
-	background-color: #12c9ff;
-	padding: 5px;
+	background-color: #32fcff;
+	padding: 0.5rem;
 	border-radius: 1rem;
+}
+
+#exit-overlay-button {
+	padding: 5px;
 }
