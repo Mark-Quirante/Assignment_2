@@ -1,0 +1,133 @@
+body {
+	font-family: "Courier New", Courier, monospace;
+}
+
+h1 {
+	text-align: center;
+}
+
+img {
+	height: 70%;
+	width: 70%;
+}
+
+/**********************************
+		Styles for index.html
+***********************************/
+/*Displaying the list of categories as a row*/
+#food-categories-ul {
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+	justify-content: center;
+	background-color: black;
+	color: white;
+	margin-bottom: 4rem;
+}
+
+/*Putting a space between each category*/
+#food-categories-ul li {
+	margin-right: 1rem;
+}
+
+#search-bar-container {
+	display: flex;
+	justify-content: center;
+}
+
+#display-search {
+	list-style-type: none;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	max-width: 75rem;
+	margin: 0px auto;
+}
+
+#display-search li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 25%;
+	border: 2px ridge white;
+}
+
+.save-button {
+	top: 5px;
+	right: 5px;
+	background-color: #2196f3;
+	border: none;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+#ingredient-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: none;
+}
+
+#recipe-list-container {
+	position: relative;
+	background-color: #f2f2f2;
+	width: 70vw;
+	height: 70vh;
+	border: 2px solid black;
+	overflow-y: scroll;
+}
+
+#recipe-list-ingredient {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#recipe-list-ingredient li {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 60%;
+}
+
+#exit-overlay-button {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	background-color: lightgoldenrodyellow;
+}
+
+#content-area {
+	color: white;
+	background-color: black;
+	border: 10px solid brown;
+	border-radius: 20px;
+	margin-top: 1rem;
+	padding: 2rem;
+	display: none;
+}
+
+/**********************************
+		Button Styles
+***********************************/
+.button-style {
+	color: white;
+	background-color: #2196f3;
+	padding: 0.5rem;
+	border-radius: 1rem;
+}
+
+#exit-overlay-button {
+	padding: 5px;
+}
