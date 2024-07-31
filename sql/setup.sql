@@ -9,7 +9,7 @@ CREATE TABLE users (
 );
 
 -- Creating saved_recipe table
-CREATE TABLE saved_recipe (
+CREATE TABLE user_recipe (
     id INT AUTO_INCREMENT PRIMARY KEY,
     mealID BIGINT NOT NULL,
     user_id INT,
