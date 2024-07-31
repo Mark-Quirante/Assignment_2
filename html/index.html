@@ -3,44 +3,25 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="Developer" content="Augustus Jay Del Rosario" />
-		<meta name="Developer" content="Andrew Nguyen" />
-		<meta name="Developer" content="Mark Quirante" />
-		<link rel="stylesheet" type="text/css" href="/css/stylesheet_index.css" />
-		<title>Assignment 2</title>
+		<title>Login</title>
+		<link rel="stylesheet" type="text/css" href="../css/stylesheet_index.css" />
 	</head>
 	<body>
-		<div id="food-categories-container">
-			<div id="food-categories">
-				<h1>Rockin' with Recipes!</h1>
-				<ul id="food-categories-ul"></ul>
-			</div>
-
-			<div id="search-bar-container">
-				<form id="search-form">
-					<label for="category-search"></label>
-					<input
-						type="text"
-						id="category-search"
-						name="category-search"
-						size="50"
-					/>
-					<button class="button-style" type="submit">Search</button>
-				</form>
-			</div>
+		<div id="container">
+			<h1>Log in</h1>
+			<h2>
+				New to CookPal? <a href="registration.html">Sign up for an Account</a>
+			</h2>
+			<input type="text" placeholder="Email address" name="email" id="email" />
+			<br />
+			<input
+				type="password"
+				placeholder="Password (8+ characters)"
+				name="password"
+				id="password"
+			/>
+			<br />
+			<button type="submit">Login</button>
 		</div>
-
-		<div id="content-area">
-			<ul id="display-search"></ul>
-		</div>
-
-		<div id="ingredient-overlay">
-			<div id="recipe-list-container">
-				<ul id="recipe-list-ingredient"></ul>
-				<button type="button" id="exit-overlay-button">❌</button>
-			</div>
-		</div>
-		<script src="/js/api_index.js" defer></script>
-		<script src="/js/display_index.js" defer></script>
 	</body>
 </html>

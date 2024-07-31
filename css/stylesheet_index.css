@@ -1,133 +1,67 @@
 body {
-	font-family: "Courier New", Courier, monospace;
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#container {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	margin-top: 100px;
+	padding: 2em;
+	border: 2px solid #333;
+	border-radius: 10px;
+	width: 100%;
+	max-width: 400px;
+	background-color: #fff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	text-align: center;
 }
 
 h1 {
-	text-align: center;
+	margin-bottom: 0.5em;
+	color: #333;
 }
 
-img {
-	height: 70%;
-	width: 70%;
+h2 {
+	margin-bottom: 1em;
+	font-size: 1em;
+	color: #666;
 }
 
-/**********************************
-		Styles for index.html
-***********************************/
-/*Displaying the list of categories as a row*/
-#food-categories-ul {
-	display: flex;
-	flex-direction: row;
-	list-style-type: none;
-	justify-content: center;
-	background-color: black;
-	color: white;
-	margin-bottom: 4rem;
+h2 a {
+	color: #007bff;
+	text-decoration: none;
 }
 
-/*Putting a space between each category*/
-#food-categories-ul li {
-	margin-right: 1rem;
+h2 a:hover {
+	text-decoration: underline;
 }
 
-#search-bar-container {
-	display: flex;
-	justify-content: center;
-}
-
-#display-search {
-	list-style-type: none;
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	max-width: 75rem;
-	margin: 0px auto;
-}
-
-#display-search li {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	margin-bottom: 25%;
-	border: 2px ridge white;
-}
-
-.save-button {
-	top: 5px;
-	right: 5px;
-	background-color: #2196f3;
-	border: none;
-	border-radius: 50%;
-	width: 30px;
-	height: 30px;
-	font-size: 20px;
-	line-height: 20px;
-	cursor: pointer;
-}
-
-#ingredient-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
+input[type="text"],
+input[type="password"] {
+	width: 100%;
+	padding: 1.5em;
+	margin: 0.5em 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
 	box-sizing: border-box;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	display: none;
 }
 
-#recipe-list-container {
-	position: relative;
-	background-color: #f2f2f2;
-	width: 70vw;
-	height: 70vh;
-	border: 2px solid black;
-	overflow-y: scroll;
-}
-
-#recipe-list-ingredient {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-#recipe-list-ingredient li {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	width: 60%;
-}
-
-#exit-overlay-button {
-	position: absolute;
-	top: 15px;
-	right: 20px;
-	background-color: lightgoldenrodyellow;
-}
-
-#content-area {
+button {
+	padding: 0.75em;
+	margin-top: 1em;
+	background-color: #007bff;
 	color: white;
-	background-color: black;
-	border: 10px solid brown;
+	border: none;
 	border-radius: 20px;
-	margin-top: 1rem;
-	padding: 2rem;
-	display: none;
+	cursor: pointer;
+	font-size: 1em;
 }
 
-/**********************************
-		Button Styles
-***********************************/
-.button-style {
-	color: white;
-	background-color: #2196f3;
-	padding: 0.5rem;
-	border-radius: 1rem;
-}
-
-#exit-overlay-button {
-	padding: 5px;
+button:hover {
+	background-color: #0056b3;
 }
