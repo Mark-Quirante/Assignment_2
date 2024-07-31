@@ -4,6 +4,11 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-image: url('../images/food.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 #container {

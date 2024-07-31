@@ -6,6 +6,11 @@ body {
 	align-items: center;
 	height: 100vh;
 	margin: 0;
+	background-image: url('../images/food.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 #container {
