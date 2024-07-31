@@ -7,32 +7,45 @@
 		<link rel="stylesheet" href="../css/stylesheet_registration.css" />
 	</head>
 	<body>
-		<div id="container">
-			<h1>CREATE ACCOUNT</h1>
-			<h2>Already have an account? <a href="login.html">Login</a></h2>
-			<input type="text" name="name" id="name" placeholder="Name" />
-			<input type="text" name="email" id="email" placeholder="Email" />
-			<input type="text" name="email" id="email2" placeholder="Confirm Email" />
-			<input
-				type="password"
-				name="password"
-				id="password"
-				placeholder="Password"
-			/>
-			<input
-				type="password"
-				name="password"
-				id="password2"
-				placeholder="Confirm Password"
-			/>
-			<div class="terms-container">
-				<input type="checkbox" id="terms" name="terms" />
-				<label for="terms"
-					>I agree to all statements in
-					<a href="terms.html">Terms of service</a></label
-				>
+		<form
+			id="registrationForm"
+			method="post"
+			action="../php/registration.php"
+			onsubmit="handleRegistration(event)"
+		>
+			<div id="container">
+				<h1>CREATE ACCOUNT</h1>
+				<h2>Already have an account? <a href="./index.html">Login</a></h2>
+				<input type="text" name="name" id="name" placeholder="Name" />
+				<input type="text" name="email" id="email" placeholder="Email" />
+				<input
+					type="text"
+					name="email2"
+					id="email2"
+					placeholder="Confirm Email"
+				/>
+				<input
+					type="password"
+					name="password"
+					id="password"
+					placeholder="Password"
+				/>
+				<input
+					type="password"
+					name="password2"
+					id="password2"
+					placeholder="Confirm Password"
+				/>
+				<div class="terms-container">
+					<input type="checkbox" id="terms" name="terms" />
+					<label for="terms">
+						I agree to all statements in
+						<a href="terms.html">Terms of service</a>
+					</label>
+				</div>
+				<button type="submit">Register</button>
 			</div>
-			<button type="submit">Register</button>
-		</div>
+		</form>
+		<script src="../js/registration_script.js"></script>
 	</body>
 </html>
