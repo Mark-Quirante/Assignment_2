@@ -5,15 +5,16 @@ $dbname = 'CookPal';
 $username = 'root';
 $password = '';
 
-
+// Create connection
 $conn = new mysqli($host, $username, $password, $dbname);
 
+// Check connection
 if ($conn->connect_error) {
     echo json_encode(['status' => 'error', 'message' => 'Database connection failed: ' . $conn->connect_error]);
     exit();
 }
 
-
+// Check if form data is set
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['email2']) && isset($_POST['password']) && isset($_POST['password2']) && isset($_POST['terms'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -22,7 +23,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['email2']) &
     $password2 = $_POST['password2'];
     $terms = $_POST['terms'];
 
-
+    // Validate email and password match
     if ($password !== $password2) {
         echo json_encode(['status' => 'error', 'message' => 'Passwords do not match.']);
         exit();
@@ -33,6 +34,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['email2']) &
         exit();
     }
 
+    // Check if email already registered
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param('s', $email);
     $stmt->execute();
@@ -46,9 +48,8 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['email2']) &
     }
     $stmt->close();
 
-
+    // Hash password and insert new user
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
 
     $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
     $stmt->bind_param('sss', $name, $email, $hashedPassword);
