@@ -59,6 +59,14 @@ async function displaySearch(event) {
 			listImage.src = userSearch[i].strMealThumb;
 			saveButton.textContent = "+";
 			saveButton.classList.add("save-button");
+
+			saveButton.addEventListener("click", function (event) {
+				let mealId = userSearch[i].idMeal;
+				let obj = { mealId: mealId };
+				let jsonString = JSON.stringify(obj);
+				addRecipe(event, jsonString);
+			});
+
 			DISPLAY.appendChild(listItem);
 			listItem.appendChild(listImage);
 			listItem.appendChild(saveButton);

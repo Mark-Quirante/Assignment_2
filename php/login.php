@@ -1,4 +1,5 @@
 <?php
+    session_start();
 header('Content-Type: application/json'); // Set content type to JSON
 $host = 'localhost';
 $dbname = 'CookPal';
@@ -31,6 +32,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
         // Verify password
         if (password_verify($password, $hashedPassword)) {
+            $_SESSION['userId'] = $userId;
             echo json_encode(['status' => 'success', 'message' => 'Login successful.']);
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Invalid email or password.']);
