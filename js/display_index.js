@@ -45,7 +45,8 @@ async function displaySearch(event) {
 		CONTENT_AREA.style.display = "none";
 		return;
 	}
-
+	// let savedRecipes = await getSavedRecipes();
+	// console.log(savedRecipes);
 	const userSearch = await getSearch(userInput);
 
 	DISPLAY.innerHTML = ""; //Clear the text first
@@ -55,26 +56,37 @@ async function displaySearch(event) {
 			const listItem = document.createElement("li");
 			const listImage = document.createElement("img");
 			const saveButton = document.createElement("button");
+			const removeButton = document.createElement("button");
+
 			listItem.textContent = userSearch[i].strMeal;
 			listImage.src = userSearch[i].strMealThumb;
 			saveButton.textContent = "+";
 			saveButton.classList.add("save-button");
+			removeButton.textContent = "-";
+			removeButton.classList.add("remove-button");
 
 			saveButton.addEventListener("click", function (event) {
 				let mealId = userSearch[i].idMeal;
-				let obj = { mealId: mealId };
-				let jsonString = JSON.stringify(obj);
-				addRecipe(event, jsonString);
+				addRecipe(event, mealId);
+				saveButton.style.display = "none";
+				removeButton.style.display = "block";
+			});
+
+			removeButton.addEventListener("click", function (event) {
+				let mealId = userSearch[i].idMeal;
+				removeRecipe(event, mealId);
+				saveButton.style.display = "block";
+				removeButton.style.display = "none";
 			});
 
 			DISPLAY.appendChild(listItem);
 			listItem.appendChild(listImage);
 			listItem.appendChild(saveButton);
+			listItem.appendChild(removeButton);
 
 			//Adding data attributes to elements to access Meal ID
 			listItem.dataset.mealId = userSearch[i].idMeal;
 			listImage.dataset.mealId = userSearch[i].idMeal;
-			saveButton.dataset.mealId = userSearch[i].idMeal;
 		}
 	}
 	CONTENT_AREA.style.display = "grid";
@@ -89,6 +101,7 @@ async function onClickMealList(event) {
 		const nameElement = document.createElement("h2");
 		let areaMeal = ingredients.strArea;
 		let areaElement = document.createElement("h3");
+
 		nameElement.innerHTML = nameMeal;
 		areaElement.innerHTML = areaMeal;
 		RECIPE_OVERLAY.appendChild(nameElement);

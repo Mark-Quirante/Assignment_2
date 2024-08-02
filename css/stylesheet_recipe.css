@@ -11,6 +11,12 @@ img {
 	width: 70%;
 }
 
+a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 /**********************************
 		Styles for index.html
 ***********************************/
@@ -23,6 +29,8 @@ img {
 	background-color: black;
 	color: white;
 	margin-bottom: 4rem;
+	font-size: larger;
+	font-weight: bold;
 }
 
 /*Putting a space between each category*/
@@ -50,19 +58,6 @@ img {
 	text-align: center;
 	margin-bottom: 25%;
 	border: 2px ridge white;
-}
-
-.save-button {
-	top: 5px;
-	right: 5px;
-	background-color: #2196f3;
-	border: none;
-	border-radius: 50%;
-	width: 30px;
-	height: 30px;
-	font-size: 20px;
-	line-height: 20px;
-	cursor: pointer;
 }
 
 #ingredient-overlay {
@@ -130,4 +125,37 @@ img {
 
 #exit-overlay-button {
 	padding: 5px;
+}
+
+.remove-button {
+	display: none;
+	top: 5px;
+	right: 5px;
+	background-color: #f32121;
+	border: none;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	line-height: 20px;
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+.save-button {
+	top: 5px;
+	right: 5px;
+	background-color: #2196f3;
+	border: none;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	line-height: 20px;
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+#logout {
+	float: right;
 }

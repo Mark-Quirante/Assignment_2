@@ -61,8 +61,8 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['email2']) &
     }
 
     $stmt->close();
-    $conn->close();
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Invalid form data.']);
 }
+$conn->close();
 ?>
