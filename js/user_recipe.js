@@ -1,3 +1,5 @@
+const SAVED_RECIPE_DISPLAY = document.getElementById("user-saved-recipe-ul");
+
 async function addRecipe(event, mealId) {
 	event.preventDefault();
 
@@ -60,8 +62,8 @@ async function getSavedRecipes() {
 
 		if (response.ok) {
 			const data = await response.json();
-			console.log("GET SAVED RECIPE", data);
 			if (data.status === "success") {
+				return data.data;
 			} else {
 				alert(data.message);
 			}

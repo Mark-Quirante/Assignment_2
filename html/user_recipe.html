@@ -3,9 +3,26 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="../css/stylesheet_recipe.css"
+		/>
 		<title>Saved Recipes</title>
 	</head>
 	<body>
-		<p>HI</p>
+		<header>
+			<h1>
+				These are your saved Recipes!<a href="./recipe.html"
+					>Go back to Recipe Lists</a
+				>
+			</h1>
+		</header>
+		<div id="saved-recipe-container">
+			<ul id="user-saved-recipe-ul"></ul>
+		</div>
+		<script src="../js/api_index.js" defer></script>
+		<script src="../js/user_recipe.js" defer></script>
+		<script src="../js/display_user_recipe.js" defer></script>
 	</body>
 </html>

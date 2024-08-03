@@ -16,7 +16,7 @@ async function displayFoodCategoryName() {
 	for (let i = 0; i < categories.length; i++) {
 		if (categories[i]) {
 			const listItem = document.createElement("li");
-			listItem.textContent = categories[i].strCategory;
+			listItem.textContent = "|" + categories[i].strCategory + "|";
 			foodCategoriesList.appendChild(listItem);
 		}
 	}
@@ -31,8 +31,6 @@ async function displaySearch(event) {
 
 	const userInput = document.getElementById("category-search").value;
 
-	console.log(categories);
-
 	//validates user search
 	if (
 		!categories.find((categoryObject) => {
@@ -45,8 +43,8 @@ async function displaySearch(event) {
 		CONTENT_AREA.style.display = "none";
 		return;
 	}
-	// let savedRecipes = await getSavedRecipes();
-	// console.log(savedRecipes);
+
+	const savedRecipes = await getSavedRecipes();
 	const userSearch = await getSearch(userInput);
 
 	DISPLAY.innerHTML = ""; //Clear the text first
@@ -64,6 +62,15 @@ async function displaySearch(event) {
 			saveButton.classList.add("save-button");
 			removeButton.textContent = "-";
 			removeButton.classList.add("remove-button");
+
+			if (
+				savedRecipes.find((mealIDObject) => {
+					return mealIDObject.mealID == userSearch[i].idMeal;
+				})
+			) {
+				removeButton.style.display = "block";
+				saveButton.style.display = "none";
+			}
 
 			saveButton.addEventListener("click", function (event) {
 				let mealId = userSearch[i].idMeal;
@@ -99,8 +106,8 @@ async function onClickMealList(event) {
 		const ingredients = await getMealIngredients(mealId);
 		const nameMeal = ingredients.strMeal;
 		const nameElement = document.createElement("h2");
-		let areaMeal = ingredients.strArea;
-		let areaElement = document.createElement("h3");
+		const areaMeal = ingredients.strArea;
+		const areaElement = document.createElement("h3");
 
 		nameElement.innerHTML = nameMeal;
 		areaElement.innerHTML = areaMeal;

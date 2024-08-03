@@ -16,18 +16,17 @@ if ($conn->connect_error) {
     exit();
 }
 
+if (!isset($_SESSION['userId'])) {
+    echo json_encode(['status' => 'error', 'message' => 'User not logged in']);
+    exit();
+}
 
+$userData = $_SESSION['userId'];
 $raw = file_get_contents('php://input');
 $data = json_decode($raw, true);
 
-if (json_last_error() === JSON_ERROR_NONE) {
-    if (!isset($_SESSION['userId'])) {
-        echo json_encode(['status' => 'error', 'message' => 'User not logged in']);
-        exit();
-    }
-
+if (json_last_error() === JSON_ERROR_NONE && $_SERVER['REQUEST_METHOD'] !== 'GET') {
     $mealData = $data['mealId'];
-    $userData = $_SESSION['userId'];
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $conn->prepare("INSERT INTO user_recipe (mealID, user_id) VALUES (?, ?)");
@@ -50,6 +49,18 @@ if (json_last_error() === JSON_ERROR_NONE) {
         }
         $stmt->close();
     }
+} elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $stmt = $conn->prepare("SELECT mealID FROM user_recipe WHERE user_id = ?");
+    $stmt->bind_param('s', $userData);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $data = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+    }
+    echo json_encode(['status' => 'success', 'message' => 'Table of Saved Meals Received', 'data' => $data]);
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Invalid JSON input']);
 }

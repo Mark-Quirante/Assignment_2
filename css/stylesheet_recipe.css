@@ -3,6 +3,7 @@ body {
 }
 
 h1 {
+	color: white;
 	text-align: center;
 }
 
@@ -15,6 +16,15 @@ a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	color: white;
+}
+
+header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+	background-color: black;
 }
 
 /**********************************
@@ -28,14 +38,17 @@ a {
 	justify-content: center;
 	background-color: black;
 	color: white;
-	margin-bottom: 4rem;
-	font-size: larger;
+	margin-bottom: 2rem;
+	font-size: large;
 	font-weight: bold;
 }
 
 /*Putting a space between each category*/
 #food-categories-ul li {
-	margin-right: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 0.5rem;
 }
 
 #search-bar-container {
