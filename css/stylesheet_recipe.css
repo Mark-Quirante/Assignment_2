@@ -87,6 +87,10 @@ header {
 	display: none;
 }
 
+.mealInstructions {
+	max-width: 70%;
+}
+
 #recipe-list-container {
 	position: relative;
 	background-color: #f2f2f2;
