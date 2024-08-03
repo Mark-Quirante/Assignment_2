@@ -14,7 +14,7 @@ async function displaySavedRecipes() {
 		listImg.src = recipeImg;
 
 		SAVED_RECIPE_DISPLAY.appendChild(listName);
-		SAVED_RECIPE_DISPLAY.appendChild(listImg);
+		listName.appendChild(listImg);
 	}
 }
 

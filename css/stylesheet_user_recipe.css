@@ -1,0 +1,53 @@
+body {
+	font-family: "Courier New", Courier, monospace;
+}
+
+img {
+	height: 200px;
+	width: 200px;
+}
+
+header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	background-color: black;
+	color: white;
+	border-radius: 100px;
+}
+
+a {
+	font-size: larger;
+	background-color: white;
+	border-radius: 20px;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+
+#user-saved-recipe-ul {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	max-width: 75rem;
+	margin: 0px auto;
+	grid-gap: 25px;
+}
+
+#user-saved-recipe-ul li {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	border: 2px ridge whitesmoke;
+	padding: 10px;
+}
+
+#saved-recipe-container {
+	color: white;
+	background-color: black;
+	border: 10px solid brown;
+	border-radius: 20px;
+	margin-top: 1rem;
+	padding: 2rem;
+}
