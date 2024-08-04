@@ -15,9 +15,18 @@
 			<h1>These are your saved Recipes!</h1>
 			<a href="./recipe.html">Go back to Recipe List</a>
 		</header>
+
 		<div id="saved-recipe-container">
 			<ul id="user-saved-recipe-ul"></ul>
 		</div>
+
+		<div id="ingredient-overlay">
+			<div id="recipe-list-container">
+				<ul id="recipe-list-ingredient"></ul>
+				<button type="button" id="exit-overlay-button">❌</button>
+			</div>
+		</div>
+
 		<script src="../js/api_index.js" defer></script>
 		<script src="../js/user_recipe.js" defer></script>
 		<script src="../js/display_user_recipe.js" defer></script>

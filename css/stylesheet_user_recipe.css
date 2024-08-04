@@ -52,6 +52,55 @@ a {
 	padding: 2rem;
 }
 
+#ingredient-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: none;
+}
+
+.mealInstructions {
+	max-width: 90%;
+}
+
+#recipe-list-container {
+	position: relative;
+	background-color: #f2f2f2;
+	width: 70vw;
+	height: 70vh;
+	border: 3px solid brown;
+	overflow-y: scroll;
+	background-color: black;
+	color: white;
+}
+
+#recipe-list-ingredient {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#recipe-list-ingredient li {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 70%;
+}
+
+#exit-overlay-button {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	background-color: white;
+}
+
 .remove-button {
 	top: 5px;
 	right: 5px;
