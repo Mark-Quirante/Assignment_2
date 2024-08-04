@@ -18,6 +18,7 @@ async function displayFoodCategoryName() {
 		if (categories[i]) {
 			const listItem = document.createElement("button");
 			listItem.textContent = categories[i].strCategory;
+			listItem.classList.add("category-button");
 			foodCategoriesList.appendChild(listItem);
 			listItem.addEventListener("click", () =>
 				displaySearchByCategory(categories[i].strCategory)

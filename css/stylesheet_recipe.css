@@ -1,5 +1,5 @@
 body {
-	font-family: "Courier New", Courier, monospace;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -31,25 +31,6 @@ header {
 		Styles for index.html
 ***********************************/
 /*Displaying the list of categories as a row*/
-#food-categories-ul {
-	display: flex;
-	flex-direction: row;
-	list-style-type: none;
-	justify-content: center;
-	background-color: black;
-	color: white;
-	margin-bottom: 2rem;
-	font-size: large;
-	font-weight: bold;
-}
-
-/*Putting a space between each category*/
-#food-categories-ul li {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-right: 0.5rem;
-}
 
 #search-bar-container {
 	display: flex;
@@ -178,4 +159,18 @@ header {
 
 #logout {
 	float: right;
+}
+
+.category-button {
+	background-color: #2196f3;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 5px 2px;
+	cursor: pointer;
+	border-radius: 10px;
 }
