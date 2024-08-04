@@ -1,5 +1,3 @@
-const SAVED_RECIPE_DISPLAY = document.getElementById("user-saved-recipe-ul");
-
 async function addRecipe(event, mealId) {
 	event.preventDefault();
 
