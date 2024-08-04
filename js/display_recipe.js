@@ -7,6 +7,7 @@ const CLOSE_OVERLAY_BUTTON = document.getElementById("exit-overlay-button");
 const RECIPE_OVERLAY = document.getElementById("recipe-list-ingredient");
 
 let categories;
+
 /** Food Categories Functionality */
 
 async function displayFoodCategoryName() {
@@ -15,12 +16,69 @@ async function displayFoodCategoryName() {
 	categories = await getFoodCategories();
 	for (let i = 0; i < categories.length; i++) {
 		if (categories[i]) {
-			const listItem = document.createElement("li");
-			listItem.textContent = "|" + categories[i].strCategory + "|";
+			const listItem = document.createElement("button");
+			listItem.textContent = categories[i].strCategory;
 			foodCategoriesList.appendChild(listItem);
+			listItem.addEventListener("click", () =>
+				displaySearchByCategory(categories[i].strCategory)
+			);
 		}
 	}
-	return listItem;
+}
+
+async function displaySearchByCategory(category) {
+	const userSearch = await getSearch(category);
+
+	DISPLAY.innerHTML = ""; // Clear the text first
+
+	for (let i = 0; i < userSearch.length; i++) {
+		if (userSearch[i]) {
+			const listItem = document.createElement("li");
+			const listImage = document.createElement("img");
+			const saveButton = document.createElement("button");
+			const removeButton = document.createElement("button");
+
+			listItem.textContent = userSearch[i].strMeal;
+			listImage.src = userSearch[i].strMealThumb;
+			saveButton.textContent = "+";
+			saveButton.classList.add("save-button");
+			removeButton.textContent = "-";
+			removeButton.classList.add("remove-button");
+
+			const savedRecipes = await getSavedRecipes();
+			if (
+				savedRecipes.find(
+					(mealIDObject) => mealIDObject.mealID == userSearch[i].idMeal
+				)
+			) {
+				removeButton.style.display = "block";
+				saveButton.style.display = "none";
+			}
+
+			saveButton.addEventListener("click", function (event) {
+				let mealId = userSearch[i].idMeal;
+				addRecipe(event, mealId);
+				saveButton.style.display = "none";
+				removeButton.style.display = "block";
+			});
+
+			removeButton.addEventListener("click", function (event) {
+				let mealId = userSearch[i].idMeal;
+				removeRecipe(event, mealId);
+				saveButton.style.display = "block";
+				removeButton.style.display = "none";
+			});
+
+			DISPLAY.appendChild(listItem);
+			listItem.appendChild(listImage);
+			listItem.appendChild(saveButton);
+			listItem.appendChild(removeButton);
+
+			listItem.dataset.mealId = userSearch[i].idMeal;
+			listImage.dataset.mealId = userSearch[i].idMeal;
+		}
+	}
+	CONTENT_AREA.style.display = "grid";
 }
 
 /** Search Bar Functionality */
