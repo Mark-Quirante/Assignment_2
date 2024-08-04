@@ -108,16 +108,13 @@ async function onClickMealList(event) {
 		const nameElement = document.createElement("h2");
 		const areaMeal = ingredients.strArea;
 		const areaElement = document.createElement("h3");
-		const mealInstructions = ingredients.strInstructions;
-		const mealInstructionsElement = document.createElement("p");
-		mealInstructionsElement.classList.add("mealInstructions");
 
 		nameElement.innerHTML = nameMeal;
 		areaElement.innerHTML = areaMeal;
-		mealInstructionsElement.innerHTML = mealInstructions;
+
 		RECIPE_OVERLAY.appendChild(nameElement);
 		RECIPE_OVERLAY.appendChild(areaElement);
-		RECIPE_OVERLAY.appendChild(mealInstructionsElement);
+
 		displayIngredientsAndMeasurments(ingredients);
 		OVERLAY_WINDOW.style.display = "flex";
 	}
@@ -127,15 +124,23 @@ async function displayIngredientsAndMeasurments(ingredients) {
 	for (let i = 1; i <= 20; i++) {
 		const ingredient = ingredients["strIngredient" + i];
 		const measurement = ingredients["strMeasure" + i];
+
 		const listElement = document.createElement("li");
 		const ingredientElement = document.createElement("p");
 		const measureElement = document.createElement("p");
+
 		ingredientElement.innerHTML = ingredient;
 		measureElement.innerHTML = measurement;
 		listElement.appendChild(ingredientElement);
 		listElement.appendChild(measureElement);
 		RECIPE_OVERLAY.appendChild(listElement);
 	}
+	const mealInstructions = ingredients.strInstructions;
+	const mealInstructionsElement = document.createElement("p");
+	mealInstructionsElement.classList.add("mealInstructions");
+
+	mealInstructionsElement.innerHTML = mealInstructions;
+	RECIPE_OVERLAY.appendChild(mealInstructionsElement);
 }
 
 function hideOverlayWindow() {
