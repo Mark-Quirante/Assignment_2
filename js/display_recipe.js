@@ -90,21 +90,8 @@ async function displaySearch(event) {
 
 	const userInput = document.getElementById("category-search").value;
 
-	//validates user search
-	if (
-		!categories.find((categoryObject) => {
-			return (
-				categoryObject.strCategory.toLowerCase() === userInput.toLowerCase()
-			);
-		})
-	) {
-		alert("Search must include categories listed.");
-		CONTENT_AREA.style.display = "none";
-		return;
-	}
-
 	const savedRecipes = await getSavedRecipes();
-	const userSearch = await getSearch(userInput);
+	const userSearch = await getSearchByName(userInput);
 
 	DISPLAY.innerHTML = ""; //Clear the text first
 
