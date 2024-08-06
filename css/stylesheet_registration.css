@@ -85,3 +85,51 @@ button {
 button:hover {
 	background-color: #0056b3;
 }
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    body {
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px;
+        height: auto;
+		background-image: url('../images/food.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: center;
+    }
+
+    #container {
+        margin-top: 20px;
+        padding: 1em;
+        width: 100%;
+        max-width: 100%;
+        box-shadow: none;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 0.9em;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        padding: 0.75em;
+    }
+
+    .terms-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    button {
+        padding: 0.5em;
+        font-size: 0.9em;
+    }
+}

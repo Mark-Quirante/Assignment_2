@@ -178,3 +178,45 @@ header {
 	cursor: pointer;
 	border-radius: 10px;
 }
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    #food-categories {
+        flex-direction: column;
+    }
+
+    #display-search {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: 15px;
+        padding: 0 1rem;
+    }
+
+    #display-search li {
+        padding: 5px;
+    }
+
+    #recipe-list-container {
+        width: 90vw;
+        height: 50vh;
+    }
+
+    #recipe-list-ingredient li {
+        width: 90%;
+    }
+
+    .button-style {
+        padding: 0.25rem;
+        font-size: 0.8rem;
+    }
+
+    #exit-overlay-button {
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+    }
+}
