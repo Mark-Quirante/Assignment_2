@@ -1,10 +1,10 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	background: url('../images/black-steel-background-3000x2000.jpg') center top fixed repeat;
+	background: url("../images/background.jpg") center top fixed repeat;
 }
 
 h1 {
-	color: white;
+	color: #31342d;
 	text-align: center;
 }
 
@@ -22,24 +22,69 @@ a {
 
 header {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	flex-direction: row;
-	background-color: forestgreen;
+	padding: 0 40px;
+	border-radius: 1rem 1rem 0 0;
+	background-color: rgba(255, 255, 255, 0.6);
+	backdrop-filter: blur(2px);
+	border: 1px solid #31342d54;
+	border-bottom-width: 0;
 }
 
 /**********************************
 		Styles for recipe.html
 ***********************************/
+#saved-recipe-link {
+	margin-right: 0.5rem;
+}
+
 #food-categories {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
+}
+
+#food-categories-container {
+	background-color: rgba(255, 255, 255, 0.6);
+	padding-bottom: 1rem;
+	border-radius: 0 0 1rem 1rem;
+	backdrop-filter: blur(2px);
+	border: 1px solid #31342d54;
+	border-top-width: 0;
+}
+
+#food-categories > p {
+	padding-left: 40px;
+	font-weight: bold;
+	color: #31342dc5;
+	margin: 0;
+}
+
+#food-categories-ul {
+	margin-top: 0;
 }
 
 #search-bar-container {
 	display: flex;
 	justify-content: center;
+}
+
+#search-form {
+	background-color: white;
+	padding: 5px;
+	border-radius: 500px;
+	filter: drop-shadow(0px 0px 3px #31342d54);
+}
+
+#search-bar-container input {
+	box-sizing: border-box;
+	height: 100%;
+	border: none;
+	border-radius: 500px;
+	padding: 0px 20px;
 }
 
 #display-search {
@@ -49,6 +94,7 @@ header {
 	max-width: 75rem;
 	margin: 0px auto;
 	grid-gap: 25px;
+	padding: 0;
 }
 
 #display-search li {
@@ -124,9 +170,16 @@ header {
 ***********************************/
 .button-style {
 	color: white;
-	background-color: #2196f3;
-	padding: 0.5rem;
-	border-radius: 1rem;
+	background-color: #31342d;
+	padding: 0.75rem 1.25rem;
+	border-radius: 500px;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.35s ease-in-out;
+}
+
+.button-style:hover {
+	background-color: #ca4f16;
 }
 
 #exit-overlay-button {
@@ -167,7 +220,7 @@ header {
 }
 
 .category-button {
-	background-color: #2196f3;
+	background-color: #ca4f16;
 	border: none;
 	color: white;
 	padding: 15px;
@@ -178,55 +231,61 @@ header {
 	font-size: 16px;
 	cursor: pointer;
 	border-radius: 10px;
+	transition: background-color 0.35s ease-in-out;
+}
+
+.category-button:hover {
+	background-color: #f49d17;
 }
 
 /* Responsive Styles */
 @media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        padding: 1rem;
-    }
+	header {
+		flex-direction: column;
+		padding: 1rem;
+	}
 
-    #food-categories {
-        flex-direction: column;
-    }
+	#food-categories {
+		flex-direction: column;
+	}
 
-    #display-search {
-        grid-template-columns: repeat(1, minmax(100px, 2fr));
-        grid-gap: 15px;
-        padding: 0 1rem;
-    }
+	#display-search {
+		grid-template-columns: repeat(1, minmax(100px, 2fr));
+		grid-gap: 15px;
+		padding: 0 1rem;
+	}
 
-    #display-search li {
-        padding: 5px;
-    }
+	#display-search li {
+		padding: 5px;
+	}
 
-    #recipe-list-container {
-        width: 90vw;
-        height: 50vh;
-    }
+	#recipe-list-container {
+		width: 90vw;
+		height: 50vh;
+	}
 
-    #recipe-list-ingredient li {
-        width: 90%;
-    }
+	#recipe-list-ingredient li {
+		width: 90%;
+	}
 
-    #exit-overlay-button {
-        width: 25px;
-        height: 25px;
-        font-size: 16px;
-    }
+	#exit-overlay-button {
+		width: 25px;
+		height: 25px;
+		font-size: 16px;
+	}
 
 	#search {
 		margin: 28px 0px 5px -40px;
-        left: 50%;
-        position: absolute;
+		left: 50%;
+		position: absolute;
 	}
 
 	#food-categories-ul {
-	padding-inline-start: 40px;
-	padding-inline-end: 35px;
+		margin-top: 0;
+		padding-inline-start: 40px;
+		padding-inline-end: 35px;
 	}
-	
+
 	#content-area {
 		color: white;
 		background-color: black;

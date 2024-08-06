@@ -1,6 +1,6 @@
 body {
 	font-family: "Courier New", Courier, monospace;
-	background: url('../images/black-steel-background-3000x2000.jpg') center top fixed repeat;
+	background: url("../images/background.jpg") center top fixed repeat;
 }
 
 img {
@@ -13,9 +13,11 @@ header {
 	justify-content: space-around;
 	align-items: center;
 	flex-direction: column;
-	background-color: forestgreen;
-	color: white;
-	border-radius: 100px;
+	color: #31342d;
+	border-radius: 1rem;
+	background-color: rgba(255, 255, 255, 0.6);
+	backdrop-filter: blur(2px);
+	border: 1px solid #31342d54;
 }
 
 a {
