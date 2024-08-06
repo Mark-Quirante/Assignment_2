@@ -4,11 +4,11 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-image: url('../images/food.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+	background-image: url("../images/food.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
 }
 
 #container {
@@ -17,12 +17,12 @@ body {
 	margin: auto;
 	margin-top: 100px;
 	padding: 2em;
-	border: 2px solid #333;
+	border: 1px solid #31342d54;
 	border-radius: 10px;
 	width: 100%;
 	max-width: 400px;
 	background-color: #fff;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	filter: drop-shadow(0px 5px 10px #31342d54);
 	text-align: center;
 }
 
@@ -38,7 +38,7 @@ h2 {
 }
 
 h2 a {
-	color: #007bff;
+	color: #ca4f16;
 	text-decoration: none;
 }
 
@@ -59,49 +59,54 @@ input[type="password"] {
 button {
 	padding: 0.75em;
 	margin-top: 1em;
-	background-color: #007bff;
+	background-color: #ca4f16;
 	color: white;
 	border: none;
 	border-radius: 20px;
 	cursor: pointer;
 	font-size: 1em;
+	transition: background-color 0.25s ease-in-out;
 }
 
 button:hover {
-	background-color: #0056b3;
+	background-color: #31342d;
+}
+
+#food-categories-ul {
+	padding: 0;
 }
 
 /* Responsive Styles */
 @media (max-width: 600px) {
-    body {
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 20px;
-        height: auto;
-		background-image: url('../images/food.jpg');
+	body {
+		justify-content: flex-start;
+		align-items: flex-start;
+		padding: 20px;
+		height: auto;
+		background-image: url("../images/food.jpg");
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-attachment: fixed;
 		background-position: center;
-    }
+	}
 
-    #container {
-        margin-top: 20px;
-        padding: 1em;
-        width: 100%;
-        max-width: 100%;
-        box-shadow: none;
-        border: none;
-        background-color: rgba(255, 255, 255, 0.9);
-    }
+	#container {
+		margin-top: 20px;
+		padding: 1em;
+		width: 100%;
+		max-width: 100%;
+		box-shadow: none;
+		border: none;
+		background-color: rgba(255, 255, 255, 0.9);
+	}
 
-    input[type="text"],
-    input[type="password"] {
-        padding: 1em;
-    }
+	input[type="text"],
+	input[type="password"] {
+		padding: 1em;
+	}
 
-    button {
-        padding: 0.5em;
-        font-size: 0.9em;
-    }
+	button {
+		padding: 0.5em;
+		font-size: 0.9em;
+	}
 }
