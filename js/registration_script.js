@@ -18,12 +18,16 @@ async function handleRegistration(event) {
 	const email2 = formData.get("email2").trim();
 	const password = formData.get("password");
 	const password2 = formData.get("password2");
+	const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/;
 
 	if (!name || !email || !email2 || !password || !password2) {
 		alert("All fields are required.");
 		return;
 	}
-
+	if (!emailPattern.test(email)) {
+		alert("❌Email address should be non-empty with the format xyx@xyz.xyz.");
+		return;
+	}
 	if (email !== email2) {
 		alert("Emails do not match.");
 		return;
