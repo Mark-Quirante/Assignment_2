@@ -10,7 +10,33 @@ async function handleRegistration(event) {
 	console.log("Form element retrieved:", form);
 
 	var formData = new FormData(form);
-	console.log("FormData created:", formData);
+
+	// validation
+	const terms = document.getElementById("terms").checked;
+	const name = formData.get("name");
+	const email = formData.get("email").trim();
+	const email2 = formData.get("email2").trim();
+	const password = formData.get("password");
+	const password2 = formData.get("password2");
+
+	if (!name || !email || !email2 || !password || !password2) {
+		alert("All fields are required.");
+		return;
+	}
+
+	if (email !== email2) {
+		alert("Emails do not match.");
+		return;
+	}
+
+	if (password !== password2) {
+		alert("Passwords do not match.");
+		return;
+	}
+	if (!terms) {
+		alert("Terms must be agreed");
+		return;
+	}
 
 	try {
 		const response = await fetch(form.action, {
