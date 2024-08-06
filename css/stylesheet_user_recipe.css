@@ -1,5 +1,6 @@
 body {
 	font-family: "Courier New", Courier, monospace;
+	background: url('../images/black-steel-background-3000x2000.jpg') center top fixed repeat;
 }
 
 img {
@@ -12,7 +13,7 @@ header {
 	justify-content: space-around;
 	align-items: center;
 	flex-direction: column;
-	background-color: black;
+	background-color: forestgreen;
 	color: white;
 	border-radius: 100px;
 }
@@ -23,7 +24,9 @@ a {
 	border-radius: 20px;
 	margin-bottom: 10px;
 	padding: 5px;
+
 	color: white;
+
 }
 
 #user-saved-recipe-ul {
