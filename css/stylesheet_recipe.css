@@ -1,5 +1,6 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
+	background: url('../images/black-steel-background-3000x2000.jpg') center top fixed repeat;
 }
 
 h1 {
@@ -24,7 +25,7 @@ header {
 	justify-content: space-around;
 	align-items: center;
 	flex-direction: row;
-	background-color: black;
+	background-color: forestgreen;
 }
 
 /**********************************
@@ -170,7 +171,7 @@ header {
 	border: none;
 	color: white;
 	padding: 15px;
-	margin-right: 10px;
+	margin: 10px 5px 0.5px 1px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
@@ -191,7 +192,7 @@ header {
     }
 
     #display-search {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-columns: repeat(1, minmax(100px, 2fr));
         grid-gap: 15px;
         padding: 0 1rem;
     }
@@ -209,14 +210,30 @@ header {
         width: 90%;
     }
 
-    .button-style {
-        padding: 0.25rem;
-        font-size: 0.8rem;
-    }
-
     #exit-overlay-button {
         width: 25px;
         height: 25px;
         font-size: 16px;
     }
+
+	#search {
+		margin: 28px 0px 5px -40px;
+        left: 50%;
+        position: absolute;
+	}
+
+	#food-categories-ul {
+	padding-inline-start: 40px;
+	padding-inline-end: 35px;
+	}
+	
+	#content-area {
+		color: white;
+		background-color: black;
+		border: 10px solid brown;
+		border-radius: 20px;
+		margin-top: 3rem;
+		padding: 1.5rem;
+		display: none;
+	}
 }
