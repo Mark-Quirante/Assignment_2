@@ -19,18 +19,20 @@ header {
 
 a {
 	font-size: larger;
-	background-color: white;
+	background-color: #2196f3;
 	border-radius: 20px;
 	margin-bottom: 10px;
 	padding: 5px;
+	color: white;
 }
 
 #user-saved-recipe-ul {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(auto-fill, minmax(5, 1fr));
 	max-width: 75rem;
 	margin: 0px auto;
 	grid-gap: 25px;
+	align-items: center;
 }
 
 #user-saved-recipe-ul li {
@@ -113,4 +115,10 @@ a {
 	line-height: 20px;
 	cursor: pointer;
 	margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+	h1 {
+		font-size: 20px;
+	}
 }
