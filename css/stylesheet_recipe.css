@@ -1,6 +1,7 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	background: url('../images/black-steel-background-3000x2000.jpg') center top fixed repeat;
+	background: url("../images/black-steel-background-3000x2000.jpg") center top
+		fixed repeat;
 }
 
 h1 {
@@ -22,10 +23,11 @@ a {
 
 header {
 	display: flex;
-	justify-content: space-around;
 	align-items: center;
-	flex-direction: row;
-	background-color: forestgreen;
+	flex-direction: column;
+	background-color: brown;
+	padding: 20px;
+	border-radius: 50px;
 }
 
 /**********************************
@@ -162,10 +164,6 @@ header {
 	margin-top: 5px;
 }
 
-#logout {
-	float: right;
-}
-
 .category-button {
 	background-color: #2196f3;
 	border: none;
@@ -182,51 +180,51 @@ header {
 
 /* Responsive Styles */
 @media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        padding: 1rem;
-    }
+	header {
+		flex-direction: column;
+		padding: 1rem;
+	}
 
-    #food-categories {
-        flex-direction: column;
-    }
+	#food-categories {
+		flex-direction: column;
+	}
 
-    #display-search {
-        grid-template-columns: repeat(1, minmax(100px, 2fr));
-        grid-gap: 15px;
-        padding: 0 1rem;
-    }
+	#display-search {
+		grid-template-columns: repeat(1, minmax(100px, 2fr));
+		grid-gap: 15px;
+		padding: 0 1rem;
+	}
 
-    #display-search li {
-        padding: 5px;
-    }
+	#display-search li {
+		padding: 5px;
+	}
 
-    #recipe-list-container {
-        width: 90vw;
-        height: 50vh;
-    }
+	#recipe-list-container {
+		width: 90vw;
+		height: 50vh;
+	}
 
-    #recipe-list-ingredient li {
-        width: 90%;
-    }
+	#recipe-list-ingredient li {
+		width: 90%;
+	}
 
-    #exit-overlay-button {
-        width: 25px;
-        height: 25px;
-        font-size: 16px;
-    }
+	#exit-overlay-button {
+		width: 25px;
+		height: 25px;
+		font-size: 16px;
+	}
 
 	#search {
 		margin: 28px 0px 5px -40px;
-        left: 50%;
-        position: absolute;
+		left: 50%;
+		position: absolute;
 	}
 
 	#food-categories-ul {
-	padding-inline-start: 40px;
-	padding-inline-end: 35px;
+		padding-inline-start: 40px;
+		padding-inline-end: 35px;
 	}
-	
+
 	#content-area {
 		color: white;
 		background-color: black;
