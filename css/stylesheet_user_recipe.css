@@ -120,6 +120,7 @@ a {
 @media (max-width: 600px) {
 	#user-saved-recipe-ul {
 		grid-template-columns: repeat(1, 1fr);
+		padding: 6px;
 	}
 
 	h1 {
