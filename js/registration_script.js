@@ -2,14 +2,14 @@ async function handleRegistration(event) {
 	event.preventDefault();
 	console.log("Form submission prevented");
 
-	var form = document.getElementById("registrationForm");
+	const form = document.getElementById("registrationForm");
 	if (!form) {
 		console.error("Form not found!");
 		return;
 	}
 	console.log("Form element retrieved:", form);
 
-	var formData = new FormData(form);
+	const formData = new FormData(form);
 
 	// validation
 	const terms = document.getElementById("terms").checked;
