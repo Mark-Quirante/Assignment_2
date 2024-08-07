@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: application/json'); // Set content type to JSON
+header('Content-Type: application/json'); 
 $response = ['status' => 'error', 'message' => 'An unknown error occurred'];
 
 try {
@@ -8,21 +8,21 @@ try {
     $username = 'root';
     $password = '';
 
-    // Create connection
+    // Creating the connection
     $conn = new mysqli($host, $username, $password, $dbname);
 
-    // Check connection
+    // Checking the connection
     if ($conn->connect_error) {
         throw new Exception('Database connection failed: ' . $conn->connect_error);
     }
 
-    // Check if form data is set
+    // Checking to see if form data is set
     if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['terms'])) {
         $name = $_POST['name'];
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        // Check if email already registered
+        // Checking to see if email already registered
         $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->bind_param('s', $email);
         $stmt->execute();
@@ -33,7 +33,7 @@ try {
         }
         $stmt->close();
 
-        // Hash password and insert new user
+        // Hashing the password and inserting the new user
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");

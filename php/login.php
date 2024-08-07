@@ -20,7 +20,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Check if email exists
+    // Checking to see if the email exists
     $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
     $stmt->bind_param('s', $email);
     $stmt->execute();
@@ -30,7 +30,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $stmt->bind_result($userId, $hashedPassword);
         $stmt->fetch();
 
-        // Verify password
+        // Verifying the password
         if (password_verify($password, $hashedPassword)) {
             $_SESSION['userId'] = $userId;
             echo json_encode(['status' => 'success', 'message' => 'Login successful.']);
@@ -38,7 +38,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             echo json_encode(['status' => 'error', 'message' => 'Invalid email or password.']);
         }
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'Invalid email or password.']);
+        echo json_encode(['status' => 'error', 'message' => 'Invalid email']);
     }
 
     $stmt->close();

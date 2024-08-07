@@ -1,4 +1,4 @@
---SQL code created by Mark Quirante 
+--Database created by Mark Quirante
 CREATE DATABASE CookPal;
 USE CookPal;
 
