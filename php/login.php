@@ -1,5 +1,6 @@
 <?php
-    session_start();
+// Code written by Augustus Jay Del Rosario
+session_start();
 header('Content-Type: application/json'); // Set content type to JSON
 $host = 'localhost';
 $dbname = 'CookPal';

@@ -1,4 +1,6 @@
 <?php
+// Code written by Augustus Jay Del Rosario
+
 header('Content-Type: application/json'); 
 $response = ['status' => 'error', 'message' => 'An unknown error occurred'];
 
