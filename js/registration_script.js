@@ -1,3 +1,6 @@
+/** Code written by Augustus Jay Del Rosario */
+
+/** Function that validates registration form as well as handling adding a user in our cookpal database. */
 async function handleRegistration(event) {
 	event.preventDefault();
 	console.log("Form submission prevented");
@@ -69,6 +72,11 @@ async function handleRegistration(event) {
 	}
 }
 
+/* Function to add the error messages that intakes two parameters. Field grabs the fieldId
+    and adds a error class to whereever the id is located allowing the css to turn the 
+    input box red. A div of class name error-message is also added into the textfield div
+    where the message is stored as innerText. The error message is appended to the parentNode
+    textfield class */
 function Error(elementId, message) {
 	const field = document.getElementById(elementId);
 	field.classList.add("error");
@@ -78,6 +86,10 @@ function Error(elementId, message) {
 	field.parentNode.appendChild(errorMessage);
 }
 
+/* Function to clear the error messages. errorMessages variable is created to select all
+classes of error-message. The message is then removed for each one. Similiarly, the 
+fields variable contains all .error classes such that all the input boxes return to 
+original format */
 function clearError() {
 	const errorMessages = document.querySelectorAll(".error-message");
 	errorMessages.forEach(function (message) {

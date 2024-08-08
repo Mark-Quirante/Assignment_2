@@ -1,3 +1,6 @@
+/** Code written by Augustus Jay Del Rosario */
+
+/** Function that handles the login page alongside our login.php file */
 async function handleLogin(event) {
 	event.preventDefault();
 

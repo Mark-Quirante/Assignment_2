@@ -1,8 +1,14 @@
+/** Code was written by Quoc Thinh Nguyen */
+
+/** Global variables that grabs the elements that will display recipes and ingredients */
 const SAVED_RECIPE_DISPLAY = document.getElementById("user-saved-recipe-ul");
 const OVERLAY_WINDOW = document.getElementById("ingredient-overlay");
 const CLOSE_OVERLAY_BUTTON = document.getElementById("exit-overlay-button");
 const RECIPE_OVERLAY = document.getElementById("recipe-list-ingredient");
 
+/** Funtion that calls getSavedRecipes to access a users saved meal ids in the database backend.
+ * 	It will then display which recipes are saved and correspondingly a remove button.
+ */
 async function displaySavedRecipes() {
 	const savedRecipes = await getSavedRecipes();
 	SAVED_RECIPE_DISPLAY.innerHTML = "";
@@ -39,6 +45,7 @@ async function displaySavedRecipes() {
 	}
 }
 
+/** Function that enables the saved recipes page to also display overlay window of list of ingredients and instructions */
 async function onClickMealList(event) {
 	const mealId = event.target.dataset.mealId;
 	RECIPE_OVERLAY.innerHTML = ""; // Clear list of Ingredients first
@@ -60,6 +67,7 @@ async function onClickMealList(event) {
 	}
 }
 
+/** Function that creates the li with p tags to display ingredients and measurements */
 async function displayIngredientsAndMeasurments(ingredients) {
 	for (let i = 1; i <= 20; i++) {
 		const ingredient = ingredients["strIngredient" + i];
@@ -83,6 +91,7 @@ async function displayIngredientsAndMeasurments(ingredients) {
 	RECIPE_OVERLAY.appendChild(mealInstructionsElement);
 }
 
+/** Hides the overlay window initially */
 function hideOverlayWindow() {
 	OVERLAY_WINDOW.style.display = "none";
 }

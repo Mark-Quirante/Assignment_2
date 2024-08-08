@@ -1,3 +1,6 @@
+/** Code was written by Quoc Thinh Nguyen */
+
+/** Function that enables users to add recipes in user_recipe table */
 async function addRecipe(event, mealId) {
 	event.preventDefault();
 
@@ -26,6 +29,7 @@ async function addRecipe(event, mealId) {
 	}
 }
 
+/** Function that enables users to remove recipes in user_recipe table */
 async function removeRecipe(event, mealId) {
 	event.preventDefault();
 
@@ -54,6 +58,7 @@ async function removeRecipe(event, mealId) {
 	}
 }
 
+/** Function that makes a GET request to our database to access meal ids */
 async function getSavedRecipes() {
 	try {
 		const response = await fetch("../php/user_recipe.php");
