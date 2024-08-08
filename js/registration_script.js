@@ -11,36 +11,43 @@ async function handleRegistration(event) {
 
 	const formData = new FormData(form);
 
-	// validation
+	clearError();
+	let valid = true;
+
+	// Validation
 	const terms = document.getElementById("terms").checked;
 	const name = formData.get("name");
 	const email = formData.get("email").trim();
 	const email2 = formData.get("email2").trim();
 	const password = formData.get("password");
 	const password2 = formData.get("password2");
-	const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/;
+	const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 	if (!name || !email || !email2 || !password || !password2) {
 		alert("All fields are required.");
-		return;
+		valid = false;
 	}
 	if (!emailPattern.test(email)) {
-		alert("❌Email address should be non-empty with the format xyx@xyz.xyz.");
-		return;
+		Error(
+			"email",
+			"❌Email address should be non-empty with the format xyz@xyz.xyz."
+		);
+		valid = false;
 	}
 	if (email !== email2) {
-		alert("Emails do not match.");
-		return;
+		Error("email2", "Email addresses should match");
+		valid = false;
 	}
-
 	if (password !== password2) {
-		alert("Passwords do not match.");
-		return;
+		Error("password2", "Please retype password to match password field");
+		valid = false;
 	}
 	if (!terms) {
-		alert("Terms must be agreed");
-		return;
+		Error("terms", " ❌Terms must be agreed");
+		valid = false;
 	}
+
+	if (!valid) return;
 
 	try {
 		const response = await fetch(form.action, {
@@ -52,11 +59,7 @@ async function handleRegistration(event) {
 		if (response.ok) {
 			const data = await response.json();
 			console.log("Response JSON:", data);
-			if (data.status === "success") {
-				alert(data.message);
-			} else {
-				alert(data.message);
-			}
+			alert(data.message);
 		} else {
 			alert("Error: " + response.status);
 		}
@@ -64,4 +67,25 @@ async function handleRegistration(event) {
 		console.error("Fetch error:", error);
 		alert("Error: " + error.message);
 	}
+}
+
+function Error(elementId, message) {
+	const field = document.getElementById(elementId);
+	field.classList.add("error");
+	const errorMessage = document.createElement("div");
+	errorMessage.className = "error-message";
+	errorMessage.innerText = message;
+	field.parentNode.appendChild(errorMessage);
+}
+
+function clearError() {
+	const errorMessages = document.querySelectorAll(".error-message");
+	errorMessages.forEach(function (message) {
+		message.remove();
+	});
+
+	const fields = document.querySelectorAll(".error");
+	fields.forEach(function (field) {
+		field.classList.remove("error");
+	});
 }
