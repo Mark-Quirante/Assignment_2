@@ -229,11 +229,13 @@ header {
 	border-radius: 10px;
 	transition: background-color 0.35s ease-in-out;
 }
-
+#headerButton {
+	display: flex;
+	flex-direction: row;
+}
 .category-button:hover {
 	background-color: #f49d17;
 }
-
 /* Responsive Styles */
 @media (max-width: 600px) {
 	header {
