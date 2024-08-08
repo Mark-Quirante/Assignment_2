@@ -1,3 +1,5 @@
+/** Code written by Mark Quirante */
+
 /** Functions for modifying the DOM */
 const CONTENT_AREA = document.getElementById("content-area");
 const DISPLAY = document.getElementById("display-search");
@@ -10,6 +12,9 @@ let categories;
 
 /** Food Categories Functionality */
 
+/** Function that calls getFoodCategories to display them as buttons for user to click and call
+ * another function displaySearchByCategory to display the corresponding category food list
+ */
 async function displayFoodCategoryName() {
 	const foodCategoriesList = document.getElementById("food-categories-ul");
 	foodCategoriesList.innerHTML = ""; // Clear the list first
@@ -27,6 +32,11 @@ async function displayFoodCategoryName() {
 	}
 }
 
+/** Function that passes in a food category to getSearch function to append in API URL to acquire meal name and meal image.
+ * Function will create elemements li, img, save, and remove buttons.
+ * This function will also call getSavedRecipes to keep track of which meals are added so that the corresponding
+ * remove button will remain until a meal is removed so that the save button will appear again.
+ */
 async function displaySearchByCategory(category) {
 	const userSearch = await getSearch(category);
 
@@ -84,6 +94,7 @@ async function displaySearchByCategory(category) {
 
 /** Search Bar Functionality */
 
+/** This functions similarly to displaySearchByCategory but will pass in a meal name instead of a food category */
 async function displaySearch(event) {
 	// page will not refresh with every submit click
 	event.preventDefault();
@@ -145,6 +156,12 @@ async function displaySearch(event) {
 	CONTENT_AREA.style.display = "grid";
 }
 
+/** Function that handles the overlay window when a user clicks on a food item.
+ * It will display the name and area of food list.
+ *
+ * This function will also call displayIngredientsAndMeasurments that will display other contents such as
+ * recipe instructions and recipe ingredients and measurements.
+ */
 async function onClickMealList(event) {
 	const mealId = event.target.dataset.mealId;
 	RECIPE_OVERLAY.innerHTML = ""; // Clear list of Ingredients first
@@ -166,6 +183,9 @@ async function onClickMealList(event) {
 	}
 }
 
+/** Function that is displayed alongside food name and area in overlay window, but it will add an li element that
+ * 	holds two p tags that will display ingredients and measures accordingly
+ */
 async function displayIngredientsAndMeasurments(ingredients) {
 	for (let i = 1; i <= 20; i++) {
 		const ingredient = ingredients["strIngredient" + i];
@@ -189,6 +209,7 @@ async function displayIngredientsAndMeasurments(ingredients) {
 	RECIPE_OVERLAY.appendChild(mealInstructionsElement);
 }
 
+//hides overlay window unless a user clicks on a food item
 function hideOverlayWindow() {
 	OVERLAY_WINDOW.style.display = "none";
 }
