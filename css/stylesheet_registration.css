@@ -88,6 +88,14 @@ button:hover {
 	background-color: #31342d;
 }
 
+input.error {
+	border-color: red;
+}
+
+.error-message {
+	color: red;
+}
+
 /* Responsive Styles */
 @media (max-width: 600px) {
 	body {
